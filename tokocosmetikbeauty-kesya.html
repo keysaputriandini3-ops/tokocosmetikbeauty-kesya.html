@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Toko Kosmetik Beauty Kesya</title>
+  <style>
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background: url('https://i.pinimg.com/originals/f7/62/3b/f7623b031a1328b5a80de1c08723241f.jpg') no-repeat center center fixed;
+      background-size: cover;
+      color: #4d4d4d;
+      line-height: 1.6;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(255, 182, 193, 0.9);
+      z-index: -1;
+    }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: linear-gradient(to right, rgb(255, 105, 180), #ffb6c1);
+      padding: 15px 40px;
+      color: #fff;
+      box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      transition: all 0.3s ease;
+    }
+
+    header:hover {
+      background: linear-gradient(to right, rgb(255, 105, 180), #ffb6c1);
+    }
+
+    .logo-container {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .logo-container img {
+      width: 55px;
+      height: 55px;
+      border-radius: 50%;
+      border: 2px solid rgb(158, 146, 146);
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 1.8em;
+      font-weight: 700;
+      color: #ece6e6;
+      text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.15);
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 25px;
+      margin: 0;
+      padding: 0;
+    }
+
+    nav ul li a {
+      text-decoration: none;
+      color: #ffffff;
+      font-weight: 600;
+      letter-spacing: 0.5px;
+      transition: 0.3s ease;
+      position: relative;
+    }
+
+    nav ul li a::after {
+      content: "";
+      position: absolute;
+      width: 0%;
+      height: 2px;
+      bottom: -5px;
+      left: 0;
+      background-color: #fff;
+      transition: width 0.3s ease;
+    }
+
+    nav ul li a:hover::after {
+      width: 100%;
+    }
+
+    .hero {
+      background: linear-gradient(to right, rgb(255, 20, 147), #ffe4e1);
+      text-align: center;
+      color: white;
+      padding: 90px 20px;
+      border-radius: 0 0 40px 40px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+      margin-bottom: 50px;
+    }
+
+    .hero h2 {
+      font-size: 2.4em;
+      margin-bottom: 15px;
+      color: #313131;
+    }
+
+    .hero p {
+      font-size: 1.1em;
+      max-width: 600px;
+      margin: 0 auto;
+      color: #313131;
+      opacity: 0.9;
+    }
+
+    .Tentang {
+      background-color: #f0e68ce0;
+      max-width: 850px;
+      margin: 60px auto;
+      padding: 40px 50px;
+      border-radius: 20px;
+      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .Tentang:hover {
+      transform: translateY(-7px);
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+    }
+
+    .Tentang h3 {
+      color: rgb(0, 0, 0);
+      font-size: 2em;
+      margin-bottom: 20px;
+      text-align: center;
+      position: relative;
+    }
+
+    .Tentang h3::after {
+      content: "";
+      width: 80px;
+      height: 3px;
+      background: rgb(255, 105, 180);
+      display: block;
+      margin: 10px auto 0;
+      border-radius: 2px;
+    }
+
+    .produk-section {
+      text-align: center;
+      padding: 40px 20px;
+    }
+
+    .produk-section h3 {
+      color: rgb(0, 0, 0);
+      font-size: 1.9em;
+      margin-bottom: 25px;
+    }
+
+    .produk-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 25px;
+      padding: 20px;
+    }
+
+    .produk-card {
+      background-color: #fff;
+      border-radius: 15px;
+      padding: 20px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .produk-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 8px 15px rgba(0, 0, 0, 0.15);
+    }
+
+    .produk-card img {
+      width: 100%;
+      height: 220px;
+      object-fit: cover;
+      border-radius: 12px;
+    }
+
+    .produk-card h4 {
+      margin: 10px 0 5px;
+      color: rgb(255, 105, 180);
+    }
+
+    .Pemesanan {
+      background: linear-gradient(to right, #ffb6d9, white);
+      padding: 25px;
+      border-radius: 25px;
+      width: 30%;
+      height: auto;
+      margin: 2% auto;
+      box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+    }
+
+    .Pemesanan h2 {
+      text-align: center;
+      color: #ff1493;
+      margin-bottom: 25px;
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+
+    label {
+      font-weight: 600;
+      color: #333;
+    }
+
+    input,
+    select,
+    textarea {
+      width: 85%;
+      padding: 10px 12px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    button {
+      background: linear-gradient(to right, #ff69b4, #ffb6c1);
+      border: none;
+      color: #fff;
+      font-weight: 600;
+      padding: 12px;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: 0.3s ease;
+    }
+
+    button:hover {
+      background: linear-gradient(to right, #ff1493, #ffc0cb);
+    }
+
+    #successMessage {
+      display: none;
+      margin-top: 20px;
+      padding: 15px;
+      background: #ffe6ef;
+      border-left: 5px solid #ff4fa3;
+      border-radius: 10px;
+      font-weight: 600;
+      color: #333;
+    }
+
+    .contact-container {
+      max-width: 750px;
+      margin: 70px auto;
+      background: #f0e68c;
+      padding: 40px 50px;
+      border-radius: 20px;
+      box-shadow: 0 5px 15px rgba(37, 35, 35, 0.904);
+    }
+
+    .contact-container h2 {
+      color: rgb(255, 105, 180);
+      margin-bottom: 20px;
+      text-align: center;
+    }
+
+    .contact-container p {
+      margin-bottom: 10px;
+    }
+
+    .contact-container a {
+      color: #ff1493;
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    .contact-container a:hover {
+      text-decoration: underline;
+    }
+
+    footer {
+      background-color: rgb(243, 240, 240);
+      color: #555;
+      text-align: center;
+      padding: 15px;
+      margin-top: 50px;
+      width: 100%;
+      box-sizing: border-box;
+    }
+
+    @media (max-width: 768px) {
+      header {
+        flex-direction: column;
+        gap: 10px;
+        padding: 20px;
+      }
+
+      nav ul {
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+
+      .Tentang,
+      .contact-container,
+      .Pemesanan {
+        margin: 30px 15px;
+        padding: 25px;
+        width: auto;
+      }
+
+      .hero h2 {
+        font-size: 1.8em;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <h1>Beauty Kesya</h1>
+    <nav>
+      <ul>
+        <li><a href="#home">Beranda</a></li>
+        <li><a href="#tentang">Tentang</a></li>
+        <li><a href="#produk">Koleksi</a></li>
+        <li><a href="#pemesanan">Pemesanan</a></li>
+        <li><a href="#kontak">Kontak</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section class="hero" id="home">
+    <h2>Selamat Datang di Beauty Kesya</h2>
+    <p>Produk Kosmetik Berkualitas untuk Kulit Sehat dan Cantik ✨</p>
+  </section>
+
+  <section class="Tentang" id="tentang">
+    <h3>Tentang Kami</h3>
+    <p><strong>Beauty Kesya</strong> adalah toko kosmetik terpercaya yang menawarkan berbagai produk perawatan kulit, makeup, dan aksesoris kecantikan. Kami berkomitmen untuk memberikan produk berkualitas tinggi dengan harga terjangkau.</p>
+    <p>“Glow up dengan produk terbaik dari Beauty Kesya karena kecantikan dimulai dari dalam.”</p>
+  </section>
+
+  <section class="produk-section" id="produk">
+    <h3>Koleksi Produk</h3>
+    <div class="produk-container">
+      <div class="produk-card">
+        <img src="https://th.bing.com/th/id/OIP.JMq-vi2XHyu94igGcyzwRAHaHa?w=191&h=191&c=7&r=0&o=7&dpr=1.5&pid=1.7&rm=3" alt="Lipstick Timephoria">
+        <h4>Lipstick</h4>
+        <p><strong>Kategori:</strong> Lipstick Timephoria</p>
+        <p><strong>Harga:</strong> Rp 85.000</p>
+      </div>
+
+      <div class="produk-card">
+        <img src="https://th.bing.com/th/id/OIP.KOWY6GALNBMRPwPZSdnoRgHaE8?w=266&h=180&c=7&r=0&o=7&dpr=1.5&pid=1.7&rm=3" alt="Foundation Cream">
+        <h4>Foundation</h4>
+        <p><strong>Kategori:</strong> Foundation Cream</p>
+        <p><strong>Harga:</strong> Rp 150.000</p>
+      </div>
+
+      <div class="produk-card">
+        <img src="https://i.pinimg.com/1200x/e5/f9/43/e5f9431c4083c55d187622a7f249502f.jpg" alt="Moisturizer Serum">
+        <h4>Serum</h4>
+        <p><strong>Kategori:</strong> Moisturizer Serum</p>
+        <p><strong>Harga:</strong> Rp 120.000</p>
+      </div>
+
+      <div class="produk-card">
+        <img src="https://i.pinimg.com/1200x/39/c0/64/39c064ed3f7c89867eaf1c7d3434dd76.jpg" alt="Eyeliner Pencil">
+        <h4>Eyeliner</h4>
+        <p><strong>Kategori:</strong> Eyeliner Pencil</p>
+        <p><strong>Harga:</strong> Rp 35.000</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="Pemesanan" id="pemesanan">
+    <h2>Pemesanan</h2>
+    <form id="orderForm" onsubmit="submitOrder(event)">
+      <label for="name">Nama Lengkap:</label>
+      <input type="text" id="name" name="name" required>
+
+      <label for="email">Email:</label>
+      <input type="email" id="email" name="email" required>
+
+      <label for="phone">Nomor Telepon:</label>
+      <input type="tel" id="phone" name="phone" required>
+
+      <label for="product">Produk yang Dipesan:</label>
+      <select id="product" name="product" required>
+        <option value="">Pilih Produk</option>
+        <option value="Lipstick Timephoria">Lipstick - Rp 85.000</option>
+        <option value="Foundation Cream">Foundation - Rp 150.000</option>
+        <option value="Moisturizer Serum">Serum - Rp 120.000</option>
+        <option value="Eyeliner Pencil">Eyeliner - Rp 35.000</option>
+      </select>
+
+      <label for="jumlah">Jumlah:</label>
+      <input type="number" id="jumlah" name="jumlah" min="1" required>
+
+      <label for="alamat">Alamat Pengiriman:</label>
+      <textarea id="alamat" name="alamat" rows="4" required></textarea>
+
+      <button type="submit">Kirim Pemesanan</button>
+    </form>
+
+    <div id="successMessage">
+      Pemesanan sudah terkirim, akan menghubungi Anda segera.
+    </div>
+  </section>
+
+  <section class="contact-container" id="kontak">
+    <h2>Kontak Kami</h2>
+    <p><strong>Alamat:</strong> Jl. Kiemas lingkungan mandala</p>
+    <p><strong>Email:</strong> <a href="mailto:keysaputriandini3@gmail.com">keysaputriandini3@gmail.com</a></p>
+    <p><strong>Telepon:</strong> <a href="tel:+6282184288618">+62 821-8428-8618</a></p>
+    <p>Jika Anda memiliki pertanyaan, saran, atau ingin memesan produk, jangan ragu untuk menghubungi kami. Kami siap membantu!</p>
+  </section>
+
+  <script>
+    function submitOrder(event) {
+      event.preventDefault();
+      document.getElementById('orderForm').style.display = 'none';
+      const successMessage = document.getElementById('successMessage');
+      successMessage.style.display = 'block';
+      document.getElementById('orderForm').reset();
+      setTimeout(() => {
+        document.getElementById('orderForm').style.display = 'block';
+        successMessage.style.display = 'none';
+      }, 5000);
+    }
+  </script>
+
+  <footer>
+    <p>&copy; 2025 Beauty Kesya</p>
+  </footer>
+</body>
+
+</html>
